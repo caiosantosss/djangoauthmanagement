@@ -1,6 +1,27 @@
 {% extends 'main/base.html' %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-    <h1>Home Page</h1>
-    <p>Some content to test</p>
+{% for post in posts %}
+<div class="card mt-2">
+  <div class="card-hearder"><strong>{{ post.author.username }}</strong></div>
+  <div class="card-body d-flex flex-row justify-content-between">
+    <div>
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.description }}</p>
+    </div>
+    <div>
+      Buttons
+    </div>
+    <div class="card-footer text-muted">
+      {{ post.created_at.strftime('%d-%m-%Y') }}
+    </div>
+</div>
+{% empty %}
+<div class="card mt-2">
+  <div class="card-body">
+    <h5 class="card-title">No posts</h5>
+    <p class="card-text">There are no posts yet</p>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}
