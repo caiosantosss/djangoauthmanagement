@@ -20,7 +20,7 @@
       {% if user.is_staff %}
       <form method="post">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger" name="user-id" value={{post.author.id}}>Ban User</button>
+          <button type="submit" class="btn btn-warning" name="user-id" value={{post.author.id}}>Ban User</button>
         </form>
       {% endif %}
     </div>
