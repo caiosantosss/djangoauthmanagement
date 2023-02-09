@@ -24,7 +24,7 @@ def home(request):
             user = User.objects.filter(id=user_id).first()
             if user and request.user.is_staff:
                 try:
-                    group = Group.objects.filter(name='default').first()
+                    group = Group.objects.get(name='default').first()
                     group.user_set.remove(user)
                 except:
                     pass
