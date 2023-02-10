@@ -30,7 +30,7 @@ def home(request):
                     pass
 
                 try:
-                    group = Group.objects.filter(name='mod').first()
+                    group = Group.objects.get(name='mod').first()
                     group.user_set.add(user)
                 except:
                     pass
